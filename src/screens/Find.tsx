@@ -1,4 +1,4 @@
-// import { useNavigation } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { Heading, useToast, VStack } from "native-base";
 import { useState } from "react";
 
@@ -6,14 +6,14 @@ import { Button } from "../components/Button";
 import { Header } from "../components/Header";
 import { Input } from "../components/Input";
 
-// import { api } from "../services/api";
+import { api } from "../services/api";
 
 export function Find() {
   const [isLoading, setIsLoading] = useState(false);
   const [code, setCode] = useState("");
   
   const toast = useToast();
-  // const { navigate } = useNavigation();
+  const { navigate } = useNavigation();
 
   async function handleJoinPoll() {
     try {
@@ -27,10 +27,10 @@ export function Find() {
         });
       }
 
-      // await api.post('/polls/join', { code });
+      await api.post('/polls/join', { code });
 
       setCode('');
-      // navigate("polls");
+      navigate("polls");
 
       toast.show({
         title: "Você entrou no bolão com sucesso!",
@@ -39,6 +39,7 @@ export function Find() {
       });
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
 
       if (error.response?.data?.message === 'Poll not found') {
         return toast.show({
@@ -55,8 +56,6 @@ export function Find() {
           bgColor: "red.500"
         });
       }
-    } finally {
-      setIsLoading(false);
     }
   }
 

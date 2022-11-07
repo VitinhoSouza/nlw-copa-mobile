@@ -11,7 +11,7 @@ export function EmptyPoolList() {
       </Text>
 
       <Pressable
-        // onPress={() => navigate("find")}
+        onPress={() => navigate("find")}
       >
         <Text textDecorationLine="underline" color="yellow.500" textDecoration="underline">
           buscar um por código
@@ -23,7 +23,7 @@ export function EmptyPoolList() {
       </Text>
 
       <Pressable
-        // onPress={() => navigate("new")}
+        onPress={() => navigate("new")}
       >
         <Text textDecorationLine="underline"  color="yellow.500">
           criar um novo

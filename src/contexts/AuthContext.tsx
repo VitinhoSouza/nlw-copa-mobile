@@ -29,7 +29,7 @@ export function AuthContextProvider({ children }: AuthProviderProps) {
   const [isUserLoading, setIsUserLoading] = useState(false);
   
   const [request, response, promptAsync] = Google.useAuthRequest({
-    clientId: "1044087287949-h71tva65qaj7e7nm1u9h7lb27j87o9b7.apps.googleusercontent.com",
+    clientId: process.env.CLIENT_ID,
     redirectUri: AuthSession.makeRedirectUri({ useProxy: true }),
     scopes: ['profile', 'email']
   });
@@ -57,7 +57,7 @@ export function AuthContextProvider({ children }: AuthProviderProps) {
       setUser(userInfoResponse.data.user);
     } catch (err) {
       console.log(err)
-      // throw err;
+      throw err;
     } finally {
       setIsUserLoading(false);
     }
@@ -66,7 +66,6 @@ export function AuthContextProvider({ children }: AuthProviderProps) {
   useEffect(() => {
     if (response?.type === 'success' && response.authentication?.accessToken) {
       signInWithGoogle(response.authentication.accessToken);
-      // setUser({name:"Yes", avatarUrl:"https://github.com/VitinhoSouza.png"})
     }
   }, [response]);
   

@@ -3,7 +3,7 @@ import { useToast, Heading, Text, VStack } from "native-base";
 
 import Logo from '../assets/logo.svg';
 
-// import { api } from "../services/api";
+import { api } from "../services/api";
 import { Button } from "../components/Button";
 import { Header } from "../components/Header";
 import { Input } from "../components/Input";
@@ -26,7 +26,7 @@ export function New() {
     try {
       setIsLoading(true);
 
-    //   await api.post('/polls', { title });
+      await api.post('/polls', { title });
 
       toast.show({
         title: "Bolão criado com sucesso!", 

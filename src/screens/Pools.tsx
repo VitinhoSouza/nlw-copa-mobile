@@ -9,7 +9,7 @@ import { Header } from "../components/Header";
 import { PoolCard, PoolCardProps } from "../components/PoolCard";
 import { Loading } from "../components/Loading";
 
-// import { api } from "../services/api";
+import { api } from "../services/api";
 import { EmptyPoolList } from "../components/EmptyPoolList";
 
 export function Pools() {
@@ -23,8 +23,8 @@ export function Pools() {
   async function fetchPolls() {
     try {
       setIsLoading(true)
-      // const response = await api.get('/polls');
-      // setPolls(response.data.polls);
+      const response = await api.get('/polls');
+      setPolls(response.data.polls);
     } catch (error) {
       console.log(error);
 
@@ -38,9 +38,9 @@ export function Pools() {
     }
   }
 
-  // useFocusEffect(useCallback(() => {
-  //   fetchPolls();
-  // }, []));
+  useFocusEffect(useCallback(() => {
+    fetchPolls();
+  }, []));
 
   return (
     <VStack flex={1} bgColor="gray.900">
@@ -63,7 +63,7 @@ export function Pools() {
           renderItem={({ item }) => (
             <PoolCard 
               data={item} 
-              // onPress={() => navigate("details", { id: item.id })}
+              onPress={() => navigate("details", { id: item.id })}
             />
           )}
           px={5}
