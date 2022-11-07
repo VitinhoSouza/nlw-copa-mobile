@@ -5,8 +5,7 @@ import { AuthContextProvider } from "./src/contexts/AuthContext";
 import {THEME} from "./src/styles/theme";
 
 import { Loading } from './src/components/Loading';
-import { SignIn } from './src/screens/SigIn';
-import { New } from "./src/screens/New";
+import { Routes } from "./src/routes";
 
 
 export default function App() {
@@ -21,7 +20,7 @@ export default function App() {
           backgroundColor="transparent"
           translucent
         />
-        {fontsLoaded ? <New/> : <Loading/>}
+        {fontsLoaded ? <Routes/> : <Loading/>}
       </AuthContextProvider>
     </NativeBaseProvider>
   );

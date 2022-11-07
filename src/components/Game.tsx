@@ -1,6 +1,6 @@
 import { Button, HStack, Text, useTheme, VStack } from 'native-base';
 import { X, Check } from 'phosphor-react-native';
-import { getName } from 'country-list';
+// import { getName } from 'country-list';
 import dayjs from 'dayjs';
 import ptBR from 'dayjs/locale/pt-br';
 
@@ -47,7 +47,7 @@ export function Game({ data, setFirstTeamPoints, setSecondTeamPoints, onGuessCon
       p={4}
     >
       <Text color="gray.100" fontFamily="heading" fontSize="sm">
-        {getName(data.firstTeamCountryCode)} vs. {getName(data.secondTeamCountryCode)}
+        {/* {getName(data.firstTeamCountryCode)} vs. {getName(data.secondTeamCountryCode)} */}
       </Text>
 
       <Text color="gray.200" fontSize="xs">

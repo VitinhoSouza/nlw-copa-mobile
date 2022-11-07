@@ -1,7 +1,7 @@
 import { FlatList, useToast } from 'native-base';
 import { useEffect, useState } from 'react';
 
-import { api } from '../services/api';
+// import { api } from '../services/api';
 
 import { EmptyMyPoolList } from './EmptyMyPoolList';
 import { Game } from '../components/Game';
@@ -25,9 +25,9 @@ export function Guesses({ poolId, code }: Props) {
     try {
       setIsLoading(true);
 
-      const response = await api.get(`/polls/${poolId}/games`);
+      // const response = await api.get(`/polls/${poolId}/games`);
       
-      setGames(response.data.games);
+      // setGames(response.data.games);
     } catch (error) {
       console.log(error);
       
@@ -51,10 +51,10 @@ export function Guesses({ poolId, code }: Props) {
         });
       }
 
-      await api.post(`/polls/${poolId}/games/${gameId}/guesses`, {
-        firstTeamPoints: Number(firstTeamPoints),
-        secondTeamPoints: Number(secondTeamPoints)
-      });
+      // await api.post(`/polls/${poolId}/games/${gameId}/guesses`, {
+      //   firstTeamPoints: Number(firstTeamPoints),
+      //   secondTeamPoints: Number(secondTeamPoints)
+      // });
 
       toast.show({
         title: "Palpite enviado com sucesso!",
@@ -64,7 +64,7 @@ export function Guesses({ poolId, code }: Props) {
 
       fetchGames();
     } catch (error) {
-      console.log(error.response);
+      // console.log(error.response);
 
       toast.show({
         title: "Não foi possível enviar o palpite!",
