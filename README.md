@@ -14,7 +14,7 @@ The application was built a **React Native** and **expo**. Also used:
 - **native-base** which provides several ready-made components;
 - **phosphor-react-native** for using some icons;
 - **react-native-country-flag** and **country-list** for dealing with country codes and flags;
-- **Taliwindcss** for create navigation between screens;
+- **Taliwindcss** for styling;
 - **expo-auth-session** for authentication with google;
 - **Axios** to consume a backend route;
 - **TypeScript** in data typing.
